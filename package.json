@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "mpv-integration",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "This plugin enables you to open an mpv instance that uses a list of md links from the current document as a playlist. You can filter the links with regular expressions defined in the plugin settings.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
