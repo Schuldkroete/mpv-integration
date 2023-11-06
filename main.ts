@@ -15,9 +15,17 @@ const DEFAULT_SETTINGS: MpvIntegrationPluginSettings = {
 export default class MpvIntegrationPlugin extends Plugin {
 	settings: MpvIntegrationPluginSettings;
 
+	md_links_regex = /\[.+\]\((https?:\/\/[\w\d:/?#[\]@!$&'()*+,;=.~-]+?)\)/g;
+
 	async playInMpv(view: MarkdownView) {
+		const text = view.getViewData();
+
+		const document_urls = [...text.matchAll(this.md_links_regex)].map((m) => m[1]);
+		
+
+
 		const mod = new Modal(this.app);
-		mod.contentEl.textContent = view.getViewData();
+		mod.contentEl.textContent = document_urls.toString()
 		mod.open()
 	}
 
